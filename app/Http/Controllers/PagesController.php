@@ -8,6 +8,7 @@ use App\Models\Citizen;
 use App\Models\Collection;
 use App\Traits\MessageTrait;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Facades\Hash;
 use RealRashid\SweetAlert\Facades\Alert;
@@ -63,6 +64,7 @@ class PagesController extends Controller
             Alert::success('Success', 'Attendee Updated');
             return redirect()->back();
         } else {
+            DB::beginTransaction();
             $attendee = Attendee::create([
                 'reference' => 'INV-'.rand(100000,999999).'-'.date('YmdHis'),
                 'code' => rand(100000,999999),
@@ -73,7 +75,7 @@ class PagesController extends Controller
             ]);
 
             $this->sendMail($attendee);
-
+            DB::commit();
             Alert::success('Success', 'Attendee Created');
             return redirect()->back();
         }
