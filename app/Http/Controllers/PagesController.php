@@ -75,6 +75,7 @@ class PagesController extends Controller
             ]);
 
             $this->sendMail($attendee);
+            $this->sendSMS($attendee);
             DB::commit();
             Alert::success('Success', 'Attendee Created');
             return redirect()->back();
@@ -92,6 +93,7 @@ class PagesController extends Controller
     {
         $attendee = Attendee::where(['reference' => $reference])->firstOrFail();
         $this->sendMail($attendee);
+        $this->sendSMS($attendee);
         Alert::success('Success', 'Invite Resent');
         return redirect()->back();
     }
