@@ -39,7 +39,7 @@
                             {{-- <a  class="btn btn-primary btn-sm">Edit</a> --}}
                             <a target="_blank" href="{{route('view_attendee',$attendee->reference)}}" class="btn btn-success btn-sm">View Invite</a>
                             <a  class="btn btn-warning btn-sm" href="{{route('resend_attendee', $attendee->reference)}}">Resend</a>
-                            <a  class="btn btn-danger btn-sm">Delete</a>
+                            <a  class="btn btn-danger btn-sm" href="{{route('delete_attendee', $attendee->reference)}}">Delete</a>
                         </td>
                     </tr> 
                 @endforeach               

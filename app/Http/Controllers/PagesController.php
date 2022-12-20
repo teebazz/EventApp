@@ -89,6 +89,14 @@ class PagesController extends Controller
         return view('invites.temp1', $data);
     }
     
+    public function deleteInvite($reference)
+    {
+        $attendee = Attendee::where(['reference' => $reference])->first();
+        $attendee->delete();
+        Alert::success('Success', 'Invite Deleted');
+        return redirect()->back();
+    }
+    
     public function resendnvite($reference)
     {
         $attendee = Attendee::where(['reference' => $reference])->firstOrFail();

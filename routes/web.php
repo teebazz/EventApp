@@ -37,6 +37,7 @@ Route::group(['middleware' => 'auth'], function ()
     Route::get('attendees', [PagesController::class, 'attendees'])->name('attendees');
     Route::get('view-attendee/{reference}', [PagesController::class, 'viewInvite'])->name('view_attendee');
     Route::get('resend-invite/{reference}', [PagesController::class, 'resendnvite'])->name('resend_attendee');
+    Route::get('delete-invite/{reference}', [PagesController::class, 'deleteInvite'])->name('delete_attendee');
     Route::post('create_attendee', [PagesController::class, 'createAttendee'])->name('create_attendee');
 });
 
