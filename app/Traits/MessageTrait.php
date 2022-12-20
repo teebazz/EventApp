@@ -20,7 +20,7 @@ trait MessageTrait
 
         $curl = curl_init();
 
-        $msg = "Hello {$attendee->first_name}, you have been invited to a Emmanuel's birthday party. You entry code is {$attendee->code}";
+        $msg = "Hello {$attendee->first_name}, you have been invited to Emmanuel's birthday party. Your entry code is {$attendee->code}";
 
         $data = array(
             "api_key" => env('TERMII_API'),
