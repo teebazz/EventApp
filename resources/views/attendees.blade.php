@@ -38,8 +38,8 @@
                         <td>
                             {{-- <a  class="btn btn-primary btn-sm">Edit</a> --}}
                             <a target="_blank" href="{{route('view_attendee',$attendee->reference)}}" class="btn btn-success btn-sm">View Invite</a>
-                            <a  class="btn btn-warning btn-sm" href="{{route('resend_attendee', $attendee->reference)}}">Resend</a>
-                            <a  class="btn btn-danger btn-sm" href="{{route('delete_attendee', $attendee->reference)}}">Delete</a>
+                            <a  class="btn btn-warning btn-sm" href="{{route('resend_attendee', $attendee->reference)}}" onclick=" return confirm('Are you sure you want to resend Invite')">Resend</a>
+                            <a  class="btn btn-danger btn-sm" href="{{route('delete_attendee', $attendee->reference)}}" onclick=" return confirm('Are you sure you want to delete Invite')">Delete</a>
                         </td>
                     </tr> 
                 @endforeach               
